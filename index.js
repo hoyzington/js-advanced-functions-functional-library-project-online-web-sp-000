@@ -97,14 +97,19 @@ const fi = (function() {
 
     uniq: (array, isSorted=false, clbk=false) => {
       if (isSorted) {
-        const sorted = [array[0]];
         if (clbk) {
-          for (let i = 1; i < array.length; i++) {
-            if (clbk(sorted[sorted.length -1]) !== clbk(array[i])) { 
-              sorted.push(array[i]);
+          const allChanged = [];
+          const uniqChanged = [];
+          for (let item of array) {
+            const changed = clbk(item);
+            if (!allChanged.includes(changed)) {
+              allChanged.push(changed);
+              uniqChanged.push(item);
             }
           }
+          return uniqChanged;
         } else {
+          const sorted = [array[0]];
           for (let i = 1; i < array.length; i++) {
             if (sorted[sorted.length -1] !== array[i]) { 
               sorted.push(array[i]);
