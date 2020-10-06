@@ -70,9 +70,23 @@ const fi = (function() {
       return result.sort((a, b) => clbk(a) - clbk(b));
     },
 
-    flatten: (array, isShallow) => {
-      result = [];
-      
+    flatten: (array, isShallow, result=[]) => {
+      if (!Array.isArray(array)) return result.push(array);
+      if (isShallow) {
+        for (const item of array) {
+          if (Array.isArray(item)) {
+            for (const inItem of item) {
+              result.push(inItem);
+            }
+          } else {
+            result.push(item);
+          }
+        }
+      } else {
+        for (const item of array) {
+          this.flatten(item, false, result);
+        }
+      }
       return result;
     },
 
