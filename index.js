@@ -120,13 +120,16 @@ const fi = (function() {
       } else {
         const unsorted = [array[0]];
         if (clbk) {
-          for (let i = 1; i < array.length; i++) {
-            for (const item of unsorted) {
-              if (clbk(item) !== clbk(array[i])) { 
-                unsorted.push(array[i]);
-              }
+          const allChanged = [];
+          const uniqChanged = [];
+          for (let item of array) {
+            const changed = clbk(item);
+            if (!allChanged.includes(changed)) {
+              allChanged.push(changed);
+              uniqChanged.push(item);
             }
           }
+          return uniqChanged;
         } else {
           for (let i = 1; i < array.length; i++) {
             if (!unsorted.includes(array[i])) { 
