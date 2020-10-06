@@ -124,10 +124,8 @@ const fi = (function() {
           }
         } else {
           for (let i = 1; i < array.length; i++) {
-            for (const item of unsorted) {
-              if (item !== array[i]) { 
-                unsorted.push(array[i]);
-              }
+            if (item !== array[i]) { 
+              unsorted.push(array[i]);
             }
           }
         }
