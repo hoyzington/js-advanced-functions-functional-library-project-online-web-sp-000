@@ -75,38 +75,38 @@ const fi = (function() {
         receiver.push(val)
     },
 
-    flatten: (collection, shallow, newArr=[]) => {
-      if (!Array.isArray(collection)) return newArr.push(collection)
-      if (shallow) {
-        for (let val of collection)
-          Array.isArray(val) ? this.unpack(newArr, val) : newArr.push(val)
-      } else {
-        for (let val of collection) {
-          this.flatten(val, false, newArr)
-        }
-      }
-      return newArr
-    },
-    
-    // flatten: (array, isShallow, result=[]) => {
-    //   if (!Array.isArray(array)) return result.push(array);
-    //   if (isShallow) {
-    //     for (const item of array) {
-    //       if (Array.isArray(item)) {
-    //         for (const inItem of item) {
-    //           result.push(inItem);
-    //         }
-    //       } else {
-    //         result.push(item);
-    //       }
-    //     }
+    // flatten: (collection, shallow, newArr=[]) => {
+    //   if (!Array.isArray(collection)) return newArr.push(collection)
+    //   if (shallow) {
+    //     for (let val of collection)
+    //       Array.isArray(val) ? this.unpack(newArr, val) : newArr.push(val)
     //   } else {
-    //     for (let item of array) {
-    //       this.flatten(item, false, result);
+    //     for (let val of collection) {
+    //       this.flatten(val, false, newArr)
     //     }
     //   }
-    //   return result;
+    //   return newArr
     // },
+    
+    flatten: function(array, isShallow, result=[]) {
+      if (!Array.isArray(array)) return result.push(array);
+      if (isShallow) {
+        for (const item of array) {
+          if (Array.isArray(item)) {
+            for (const inItem of item) {
+              result.push(inItem);
+            }
+          } else {
+            result.push(item);
+          }
+        }
+      } else {
+        for (let item of array) {
+          this.flatten(item, false, result);
+        }
+      }
+      return result;
+    },
 
     uniq: (clxn) => {
       
