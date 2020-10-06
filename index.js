@@ -95,7 +95,7 @@ const fi = (function() {
       return result;
     },
 
-    uniq: (array, isSorted, clbk) => {
+    uniq: (array, isSorted=false, clbk=false) => {
       if (!!isSorted) {
         const sorted = [array[0]];
         if (!!clbk) {
