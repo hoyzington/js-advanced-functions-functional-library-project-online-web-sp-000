@@ -96,6 +96,18 @@ const fi = (function() {
     },
 
     uniq: (array, isSorted, clbk) => {
+      if (isSorted) {
+        const sorted = [array[0]];
+        if (clbk) {
+          for (let i = 0; i < array.length; i++) {
+            const a = clbk ? clbk(sorted[i]) : sorted[i];
+            const b = 
+        } else {
+          for (let i = 0; i < array.length; i++) {
+            const a = clbk ? clbk(sorted[i]) : sorted[i];
+            const b = 
+        }
+      }
       
       return ;
     },
