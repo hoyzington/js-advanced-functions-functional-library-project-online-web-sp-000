@@ -100,7 +100,7 @@ const fi = (function() {
         const sorted = [array[0]];
         if (clbk) {
           for (let i = 1; i < array.length; i++) {
-            if (clbk(sorted[-1]) !== clbk(array[i])) { 
+            if (clbk(sorted[sorted.length -1]) !== clbk(array[i])) { 
               sorted.push(array[i]);
             }
           }
