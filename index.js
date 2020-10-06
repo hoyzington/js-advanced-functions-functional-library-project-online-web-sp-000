@@ -158,7 +158,7 @@ const fi = (function() {
     },
 
     functions: (obj) => {
-      funcNames = [];
+      const funcNames = [];
       for (const key in obj) {
         if (typeof obj[key] === 'function') {
           funcNames.push(key);
