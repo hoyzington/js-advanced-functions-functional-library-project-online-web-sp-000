@@ -72,22 +72,9 @@ const fi = (function() {
 
     unpack: function(receiver, arr) {
       for (let val of arr)
-        receiver.push(val)
+        receiver.push(val);
     },
 
-    // flatten: (collection, shallow, newArr=[]) => {
-    //   if (!Array.isArray(collection)) return newArr.push(collection)
-    //   if (shallow) {
-    //     for (let val of collection)
-    //       Array.isArray(val) ? this.unpack(newArr, val) : newArr.push(val)
-    //   } else {
-    //     for (let val of collection) {
-    //       this.flatten(val, false, newArr)
-    //     }
-    //   }
-    //   return newArr
-    // },
-    
     flatten: function(array, isShallow, result=[]) {
       if (!Array.isArray(array)) return result.push(array);
       if (isShallow) {
