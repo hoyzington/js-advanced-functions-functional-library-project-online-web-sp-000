@@ -124,7 +124,7 @@ const fi = (function() {
           }
         } else {
           for (let i = 1; i < array.length; i++) {
-            if (item !== array[i]) { 
+            if (!unsorted.includes(array[i])) { 
               unsorted.push(array[i]);
             }
           }
