@@ -113,10 +113,26 @@ const fi = (function() {
         }
         return sorted;
       } else {
-        
+        const unsorted = [array[0]];
+        if (clbk) {
+          for (let i = 1; i < array.length; i++) {
+            for (const item of unsorted) {
+              if (clbk(item) !== clbk(array[i])) { 
+                unsorted.push(array[i]);
+              }
+            }
+          }
+        } else {
+          for (let i = 1; i < array.length; i++) {
+            for (const item of unsorted) {
+              if (item !== array[i]) { 
+                unsorted.push(array[i]);
+              }
+            }
+          }
+        }
+        return unsorted;
       }
-      
-      return ;
     },
 
     keys: (obj) => {
