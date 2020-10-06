@@ -158,8 +158,13 @@ const fi = (function() {
     },
 
     functions: (obj) => {
-      
-      return ;
+      funcNames = [];
+      for (const key in obj) {
+        if (typeof obj[key] === 'function') {
+          funcNames.push(key)
+        }
+      }
+      return funcNames.sort();
     },
 
       };
