@@ -124,8 +124,7 @@ const fi = (function() {
           }
         } else {
           for (let i = 1; i < array.length; i++) {
-            for (const item of unsorted) {
-              if (item !== array[i]) { 
+            if (!fi.find(unsorted, item => item === array[i]))
                 unsorted.push(array[i]);
               }
             }
