@@ -142,13 +142,19 @@ const fi = (function() {
     },
 
     keys: (obj) => {
-      
-      return ;
+      const keys = [];
+      for (const key in obj){
+        keys.push(key);
+      }
+      return keys;
     },
 
     values: (obj) => {
-      
-      return ;
+      const vals = [];
+      for (let key in obj){
+        vals.push(obj[key]);
+      }
+      return values;
     },
 
     functions: (obj) => {
