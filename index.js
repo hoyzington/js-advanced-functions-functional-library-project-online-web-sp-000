@@ -95,7 +95,7 @@ const fi = (function() {
       return result;
     },
 
-    uniq: (clxn) => {
+    uniq: (array, isSorted, clbk) => {
       
       return ;
     },
