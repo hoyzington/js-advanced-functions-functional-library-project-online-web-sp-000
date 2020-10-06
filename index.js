@@ -99,14 +99,21 @@ const fi = (function() {
       if (isSorted) {
         const sorted = [array[0]];
         if (clbk) {
-          for (let i = 0; i < array.length; i++) {
-            const a = clbk ? clbk(sorted[i]) : sorted[i];
-            const b = 
+          for (let i = 1; i < array.length; i++) {
+            if (clbk(sorted[-1]) !== clbk(array[i])) { 
+              sorted.push(array[i]);
+            }
+          }
         } else {
-          for (let i = 0; i < array.length; i++) {
-            const a = clbk ? clbk(sorted[i]) : sorted[i];
-            const b = 
+          for (let i = 1; i < array.length; i++) {
+            if (sorted[-1] !== array[i]) { 
+              sorted.push(array[i]);
+            }
+          }
         }
+        return sorted;
+      } else {
+        
       }
       
       return ;
