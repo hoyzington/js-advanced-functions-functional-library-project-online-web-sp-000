@@ -83,7 +83,7 @@ const fi = (function() {
           }
         }
       } else {
-        for (const item of array) {
+        for (let item of array) {
           this.flatten(item, false, result);
         }
       }
