@@ -96,9 +96,9 @@ const fi = (function() {
     },
 
     uniq: (array, isSorted, clbk) => {
-      if (isSorted) {
+      if (!!isSorted) {
         const sorted = [array[0]];
-        if (clbk) {
+        if (!!clbk) {
           for (let i = 1; i < array.length; i++) {
             if (clbk(sorted[-1]) !== clbk(array[i])) { 
               sorted.push(array[i]);
@@ -114,7 +114,7 @@ const fi = (function() {
         return sorted;
       } else {
         const unsorted = [array[0]];
-        if (clbk) {
+        if (!!clbk) {
           for (let i = 1; i < array.length; i++) {
             for (const item of unsorted) {
               if (clbk(item) !== clbk(array[i])) { 
