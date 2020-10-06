@@ -154,7 +154,7 @@ const fi = (function() {
       for (let key in obj){
         vals.push(obj[key]);
       }
-      return values;
+      return vals;
     },
 
     functions: (obj) => {
