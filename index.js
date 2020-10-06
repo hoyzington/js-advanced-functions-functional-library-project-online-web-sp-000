@@ -106,7 +106,7 @@ const fi = (function() {
           }
         } else {
           for (let i = 1; i < array.length; i++) {
-            if (sorted[-1] !== array[i]) { 
+            if (sorted.last !== array[i]) { 
               sorted.push(array[i]);
             }
           }
